@@ -1,0 +1,25 @@
+
+
+{% extends "base.html" %}
+
+{% block "title" %}
+ tasks
+{% endblock "title" %} 
+
+{% block "container" %}
+
+<h1 class='text-center py-3 '> <U> Tasks List </U> </h1>
+{% if user.is_authenticated %}
+
+    {% include "tables.html" %}
+
+{% else %}
+you are not login
+<a class=" text-blue hover:text-purple-800 dark:hover:text-gray-300" href="{% url "login" %}"> click here</a> to see Tasks
+
+
+
+{% endif %}
+
+
+{% endblock  %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block "title" %} home
+{% endblock "title" %} 
+
+
+
+{% block "container" %}
+    
+{% if user.is_authenticated %}
+  
+
+  {% if success %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong> Task Added successfuly ! </strong> You should check added task in <a href="{% url "tasks" %}">Tasks</a>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+
+  <div class="container my-2">
+    <h1 class="text-center">To-do list </h1>
+    
+    {% include "forms.html" %}
+    
+  </div>
+
+  {% else %}
+  you are not login
+  <a class=" text-blue hover:text-purple-800 dark:hover:text-gray-300" href="{% url "login" %}"> click here</a> to login
+
+
+{% endif %}
+
+{% endblock "container" %}
+
+

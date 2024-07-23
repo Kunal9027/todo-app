@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block "title" %} edit Task
+{% endblock "title" %} 
+
+
+
+{% block "container" %}
+
+
+<div class="container my-2">
+    <h1 class="text-center">Edit To-do list </h1>
+    
+{% if taskEdit %}
+
+
+<form action="/task" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="Edittitle" class="form-label">{{i.id}} Edit Task title</label>
+        <input type="text" class="form-control" id="Edittitle1" name="Edittitle1" value ="{{taskEdit.title}}" >
+    </div>
+    
+    <div class="mb-3">
+        <label for="EditDesc" class="form-label">Edit Discription</label>
+        
+        <input type="text" class="form-control" id="EditDesc" name="EditDesc" value ="{{taskEdit.Desc}}" >
+    </div>
+    
+    <button type="submit" class="btn btn-secondary">Edit</button>
+</form>
+
+{% endif %}
+    
+</div>
+
+
+
+{% endblock "container" %}
